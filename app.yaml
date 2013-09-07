@@ -9,9 +9,26 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /scripts
+  static_dir: scripts
+
+- url: /loaddata
+  script:loadData.py
+
+- url:/data
+  static_dir: data
+  
 - url: /.*
   script: lomaxplayer.application
 
 libraries:
 - name: webapp2
   version: "2.5.2"
+
+- name: jinja2
+  version: latest
+
+
