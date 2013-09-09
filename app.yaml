@@ -15,12 +15,6 @@ handlers:
 - url: /scripts
   static_dir: scripts
 
-- url: /loaddata
-  script:loadData.py
-
-- url:/data
-  static_dir: data
-  
 - url: /.*
   script: lomaxplayer.application
 

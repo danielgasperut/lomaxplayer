@@ -12,24 +12,36 @@ class MainPage(webapp2.RequestHandler):
 
     def get(self):
 
+	sessions = []
 	tracks = {}
+	trackNo = 1
 
-	with open('tracks2', 'r') as file:
+	#build the track/session list, this should be replaced with an object query.
+	with open('tracks4', 'r') as file:
 		for line in file:
 			newDic = {}
-			for token in line.split(','):
+			for token in line.rstrip().split(','):
 				if (len(token) > 1):
  					name, value = token.split('#', 1)
+ 					if name == 'track':
+ 						value = trackNo
  					newDic[name] = value
-			sessionName = newDic['session'].rstrip()
-
-			if not (sessionName in tracks.keys()):
+			sessionName = newDic['session']
+			trackNo = trackNo + 1
+		
+			if not (sessionName in sessions):
+				sessions.append(sessionName)
 				tracks[sessionName] = [newDic]
 			else:
+				#find the index in the order list
 				tracks[sessionName].append(newDic)
-        
-        template_values = {
+			
+
+		#renumber the tracks
+					
+		template_values = {
             'tracks':tracks,
+            'sessions':sessions,
             'Title': "The Alan Lomax Player"
         }
 
