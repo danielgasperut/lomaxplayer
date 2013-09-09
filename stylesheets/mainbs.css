@@ -13,11 +13,6 @@
             -ms-text-size-adjust: 100%;
         }
 
-        body {
-            font: normal 1em Arial, Geneva, sans-serif;
-            text-align: center;
-        }
-
         h1 {
             margin: 0;
             padding: 18px 0;

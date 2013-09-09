@@ -1,43 +1,71 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 {% autoescape true %}
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-us"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en-us"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en-us"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en-us"> <!--<![endif]-->
+<html lang="en">
   <head>
-    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-        <meta charset="utf-8">
-        <title>{{Title}}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <script src="/scripts/modernizer.js"></script>
-         <div id="container">
-            <header>
-                <h1>{{Title}}</h1>
-                <div class="double"></a></div>
-                <div class="double is-audio">
-                    This is a working example of an html5 audio playlist. It has been tested in Google Chrome.<br/>
-                    <br>
-                    <div class="useLegend">Instructions: <span id="useSpan">(click to <span id="useSpanSpan">show</span>)</span></div>
-                    <div class="use">
-                        <ul>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="/scripts/modernizer.js"></script>
+
+    <!-- Le styles -->
+    <link href="/stylesheets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/mainbs.css" />
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/stylesheets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/stylesheets/bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/stylesheets/bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/stylesheets/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/stylesheets/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="/stylesheets/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="/stylesheets/bootstrap/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Blog</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+        <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>{{Title}}</h1>
+        <p><ul>
                             <li>Click on the play button of the audio control to start playing the currently selected track.</li>
                             <li>Click on either the <span class="simBtn">&nbsp;|&lt;&lt; Prev Track&nbsp;</span> or <span class="simBtn">&nbsp;Next Track &gt;&gt;|&nbsp;</span> button to select the previous or next track.</li>
                             <li>If no other controls are clicked, tracks will be played one at a time in the order shown in the playlist.</li>
-                        </ul>
-                        <p class="plus10">&nbsp;- or - </p>
-                        <ul>
-                            <li>Click on a track in the playlist, except the currently selected track, to begin playing the track.</li>
-                            <li>Play will continue through the remaining tracks of the playlist if no other controls are clicked.</li>
-                            <li> Visit the real lomax archive at <a href="http://www.culturalequity.org/">http://www.culturalequity.org/</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
-            <div id="content" role="main">
+                        </ul></p>
+                                            <div id="content" role="main">
                 <div id="cwrap">
                     <div id="nowPlay" class="is-audio">
-                        <h3 id="npAction">Paused:</h3>
+                        <div id="npAction">Paused: </div>
                         <div id="npTitle"></div>
                     </div>
                     <div id="audiowrap">
@@ -48,9 +76,15 @@
                         </div>
                         <noscript>Your browser does not support JavaScript or JavaScript has been disabled. You will need to enable JavaScript for this page.</noscript>
                         <div id="extraControls" class="is-audio">
-                            <button id="btnPrev" class="ctrlbtn">|&lt;&lt; Prev Track</button> <button id="btnNext" class="ctrlbtn">Next Track &gt;&gt;|</button>
+                            <button id="btnPrev" class="btn btn-primary btn-small">|&lt;&lt; Prev Track</button> <button id="btnNext" class="btn btn-primary btn-small">Next Track &gt;&gt;|</button>
+                            <button id="btnRnd" class="btn btn-primary btn-small">Random Track &gt;&gt;|</button>
+
                         </div>
                     </div>
+      </div>
+
+    <div class="container">
+
                     <div id="plwrap" class="is-audio">
                         <div class="plHead">
                             <div class="plHeadNum">#</div>
@@ -71,8 +105,9 @@
             </div>
         </div>
 
+    </div> <!-- /container -->
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"><\/script>')</script>
         <!--script src="/scripts/player.js"></script>-->
         <script type="text/JavaScript">
@@ -134,6 +169,10 @@
                             loadTrack(index);
                         }
                     }),
+                    btnRnd = $('#btnRnd').click(function() {
+                        playTrack(Math.ceil(Math.random()*trackCount));
+                        
+                    }),
                     li = $('.plUL li').click(function() {
                         var id = parseInt($(this).context.firstChild.innerText)-1;
                         if(id !== index) {
@@ -177,5 +216,23 @@
             
    
         </script>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/stylesheets/bootstrap/js/jquery.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-button.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="/stylesheets/bootstrap/js/bootstrap-typeahead.js"></script>
+
   </body>
 </html>
